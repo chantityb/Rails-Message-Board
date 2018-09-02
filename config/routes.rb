@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-root 'messages#index'
-
-get 'show' => 'messages#show'
-
-
-
-resources :messages
-
-
+  	devise_for :users
+  	resources :messages do
+  		resources :comments
+  	end
+	root 'messages#index'
 end
